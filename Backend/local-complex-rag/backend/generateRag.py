@@ -35,6 +35,5 @@ def format_docs(docs):
 # docs_txt = format_docs(docs)
 # rag_prompt_formatted = rag_prompt.format(context=docs_txt, question=question)
 # generation = llm.invoke([HumanMessage(content=rag_prompt_formatted)])
-# print(generation.content)
-# web_search_tool.invoke("LLM Agents")
+
 
