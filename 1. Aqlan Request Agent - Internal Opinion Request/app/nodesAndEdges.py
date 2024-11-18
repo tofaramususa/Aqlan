@@ -17,7 +17,6 @@ class GraphState(TypedDict):
     """
     Graph state is a dictionary that contains information we want to propagate to, and modify in, each graph node.
     """
-
     question: str  # User question
     generation: str  # LLM generation
     web_search: str  # Binary decision to run web search

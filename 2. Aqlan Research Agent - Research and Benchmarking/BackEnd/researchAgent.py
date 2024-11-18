@@ -181,15 +181,15 @@ SOURCES
 {sources}
 """
 
-# out = researchAgent.invoke(inputs)
+# # out = researchAgent.invoke(inputs)
 
-out = runnable.invoke(
-    {
-        "input": "What can you tell me about ai agents?",
-        "chat_history": []
-    }
-)
+# out = runnable.invoke(
+#     {
+#         "input": "What can you tell me about ai agents?",
+#         "chat_history": []
+#     }
+# )
 
-print(build_report(
-    output=out["intermediate_steps"][-1].tool_input
-))
+# print(build_report(
+#     output=out["intermediate_steps"][-1].tool_input
+# ))

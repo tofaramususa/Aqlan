@@ -15,8 +15,7 @@ def final_answer(
     - `research_steps`: a few bullet points explaining the steps that were taken
     to research your report.
     - `main_body`: this is where the bulk of high quality and concise
-    information that answers the user's question belongs. It is 3-4 paragraphs
-    long in length.
+    information that answers the user's question belongs.
     - `conclusion`: this is a short single paragraph conclusion providing a
     concise but sophisticated view on what was found.
     - `sources`: a bulletpoint list provided detailed sources for all information

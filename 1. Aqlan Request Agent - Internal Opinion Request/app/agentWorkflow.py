@@ -132,7 +132,6 @@ def create_workflow():
 
     return workflow.compile()
 
-# Streamlit app
 def main():
     st.title("RAG Workflow Tracer 🕵️‍♀️")
     st.write("This app shows the detailed workflow of Retrieval-Augmented Generation (RAG)")
@@ -147,33 +146,50 @@ def main():
     # Sidebar for previous queries
     st.sidebar.header("Previous Queries")
     
-    # Display previous queries
-    if st.session_state.query_history:
-        selected_query = st.sidebar.selectbox(
-            "Select a previous query", 
-            [""] + [q['question'] for q in st.session_state.query_history]
+    # Pagination for query history
+    queries_per_page = 5
+    total_queries = len(st.session_state.query_history)
+    
+    # Add pagination controls
+    if total_queries > 0:
+        current_page = st.sidebar.number_input(
+            "Page", 
+            min_value=1, 
+            max_value=max(1, (total_queries - 1) // queries_per_page + 1),
+            value=1
         )
         
-        # If a query is selected, show its details
-        if selected_query:
-            selected_query_data = next(
-                q for q in st.session_state.query_history 
-                if q['question'] == selected_query
-            )
-            
-            # Main area for displaying selected query details
-            st.subheader(f"Query: {selected_query}")
-            st.write(f"**Response:** {selected_query_data['response']}")
-            
-            # Workflow steps
-            with st.expander("Workflow Detailed Steps"):
-                for i, step in enumerate(selected_query_data['workflow_steps'], 1):
-                    st.write(f"Step {i}:")
-                    st.json(step)
+        # Calculate start and end indices for the current page
+        start_idx = (current_page - 1) * queries_per_page
+        end_idx = start_idx + queries_per_page
+        
+        # Slice the query history for the current page
+        page_queries = st.session_state.query_history[start_idx:end_idx]
+        
+        # Display queries for the current page
+        for idx, query_data in enumerate(reversed(page_queries), 1):
+            with st.sidebar.expander(f"Query: {query_data['question'][:50]}..."):
+                st.write(f"**Question:** {query_data['question']}")
+                st.write(f"**Response:** {query_data['response'][:200]}...")
+                
+                # Unique key using index and a unique identifier
+                details_key = f"details_{start_idx + len(page_queries) - idx}"
+                
+                # Detailed view button with unique key
+                if st.button(f"View Full Details - {query_data['question'][:20]}...", key=details_key):
+                    # Main area for displaying selected query details
+                    st.subheader(f"Query: {query_data['question']}")
+                    st.write(f"**Full Response:** {query_data['response']}")
+                    
+                    # Workflow steps
+                    with st.expander("Workflow Detailed Steps"):
+                        for i, step in enumerate(query_data['workflow_steps'], 1):
+                            st.write(f"Step {i}:")
+                            st.json(step)
 
     # Chat input
     if prompt := st.chat_input("Enter your question"):
-        # Reset sidebar for new query
+        # Reset sidebar specific components for new query
         st.sidebar.empty()
 
         # Display user message
