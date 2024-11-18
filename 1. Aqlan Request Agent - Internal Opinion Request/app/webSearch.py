@@ -19,4 +19,4 @@ os.environ["LANGCHAIN_PROJECT"] = "aqlan-request-assistant"
 
 ### Search
 
-web_search_tool = TavilySearchResults(k=3)
+web_search_tool = TavilySearchResults(k=5)
