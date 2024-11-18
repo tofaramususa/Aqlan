@@ -28,27 +28,3 @@ Avoid simply stating the correct answer at the outset."""
 hallucination_grader_prompt = """FACTS: \n\n {documents} \n\n STUDENT ANSWER: {generation}. 
 
 Return JSON with two two keys, binary_score is 'yes' or 'no' score to indicate whether the STUDENT ANSWER is grounded in the FACTS. And a key, explanation, that contains an explanation of the score."""
-
-# Test using documents and generation from above
-
-# Test
-# question = "What is Chain of thought prompting?"
-# docs = retriever.invoke(question)
-# doc_txt = docs[1].page_content
-# doc_grader_prompt_formatted = doc_grader_prompt.format(
-#     document=doc_txt, question=question
-# )
-# result = llm_json_mode.invoke(
-#     [SystemMessage(content=doc_grader_instructions)]
-#     + [HumanMessage(content=doc_grader_prompt_formatted)]
-# )
-# json.loads(result.content)
-
-# hallucination_grader_prompt_formatted = hallucination_grader_prompt.format(
-#     documents=docs_txt, generation=generation.content
-# )
-# result = llm_json_mode.invoke(
-#     [SystemMessage(content=hallucination_grader_instructions)]
-#     + [HumanMessage(content=hallucination_grader_prompt_formatted)]
-# )
-# json.loads(result.content)

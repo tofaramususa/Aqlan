@@ -20,4 +20,3 @@ os.environ["LANGCHAIN_PROJECT"] = "aqlan-request-assistant"
 ### Search
 
 web_search_tool = TavilySearchResults(k=3)
-# print(web_search_tool.invoke("LLM Agents"))

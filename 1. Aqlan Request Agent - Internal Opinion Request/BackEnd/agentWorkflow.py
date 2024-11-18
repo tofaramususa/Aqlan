@@ -54,12 +54,3 @@ display(Image(graph.get_graph().draw_mermaid_png()))
 inputs = {"question": "What is the strategy for the abu dhabi executive office for 2024?", "max_retries": 3}
 for event in graph.stream(inputs, stream_mode="values"):
     print(event)
-    
-# Current Events
-# # Test on current events
-# inputs = {
-#     "question": "What are the models released today for llama3.2?",
-#     "max_retries": 3,
-# }
-# for event in graph.stream(inputs, stream_mode="values"):
-#     print(event)

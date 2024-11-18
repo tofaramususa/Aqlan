@@ -29,11 +29,3 @@ def format_docs(docs):
     return "\n\n".join(doc.page_content for doc in docs)
 
 
-# Test
-# question = "What is Chain of thought prompting?"
-# docs = retriever.invoke(question)
-# docs_txt = format_docs(docs)
-# rag_prompt_formatted = rag_prompt.format(context=docs_txt, question=question)
-# generation = llm.invoke([HumanMessage(content=rag_prompt_formatted)])
-
-
