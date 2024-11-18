@@ -51,7 +51,7 @@ display(Image(graph.get_graph().draw_mermaid_png()))
 
 
 # Initial State values
-inputs = {"question": "What can you tell me about abu dhabi executive office?", "max_retries": 3}
+inputs = {"question": "What is the strategy for the abu dhabi executive office?", "max_retries": 3}
 for event in graph.stream(inputs, stream_mode="values"):
     print(event)
     
