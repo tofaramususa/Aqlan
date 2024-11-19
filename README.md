@@ -71,6 +71,12 @@ https://github.com/user-attachments/assets/a9f9828b-24c6-413d-9201-9d99a779d207
 # Clone repository
 git clone [https://github.com/tofaramususa/Aqlan](https://github.com/tofaramususa/Aqlan.git)
 
+#upgrade PIP to new VERSION
+pip install --upgrade pip
+
+# Uninstall all packages or create new environment
+pip uninstall -r requirements.txt -y
+
 # Install dependencies
 pip install -r requirements.txt
 
@@ -317,6 +323,12 @@ https://github.com/user-attachments/assets/959e613b-a891-4d23-915c-1fdca1c1b6e1
 ```bash
 # Clone repository
 git clone [https://github.com/tofaramususa/Aqlan](https://github.com/tofaramususa/Aqlan.git)
+
+#upgrade PIP to new VERSION
+pip install --upgrade pip
+
+# Uninstall all packages or create new environment
+pip uninstall -r requirements.txt -y
 
 # Install dependencies
 pip install -r requirements.txt
