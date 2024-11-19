@@ -1,8 +1,3 @@
-from retrieverDB import retriever
-from chatModels.chatGroqModel import llm_json_mode
-import json
-from langchain_core.messages import HumanMessage, SystemMessage
-
 doc_grader_instructions = """You are a grader assessing relevance of a retrieved document to a user question.
 
 If the document contains keyword(s) or semantic meaning related to the question, grade it as relevant."""

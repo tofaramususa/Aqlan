@@ -23,7 +23,7 @@ def format_intermediate_steps(intermediate_steps):
     return formatted_steps
 
 def main():
-    st.title("Research Agent 🕵️‍♀️")
+    st.title("ADEO Research Agent 🕵️‍♀️")
     st.write("An AI-powered research assistant that explores and synthesizes information")
 
     # Initialize session state for query history if not exists

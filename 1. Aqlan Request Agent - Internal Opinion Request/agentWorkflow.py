@@ -18,7 +18,7 @@ from nodesAndEdges import (
 from dotenv import load_dotenv
 load_dotenv()
 
-st.set_page_config(page_title="RAG Workflow Tracer", page_icon="🔍", layout="wide")
+st.set_page_config(page_title="Opinion Request Resolution Assistant", page_icon="🔍", layout="wide")
 
 def display_state(state, stage):
     """
@@ -122,8 +122,8 @@ def create_workflow():
     return workflow.compile()
 
 def main():
-    st.title("RAG Workflow Tracer 🕵️‍♀️")
-    st.write("This app shows the detailed workflow of Retrieval-Augmented Generation (RAG)")
+    st.title("ADEO Opinion Request Resolution Assistant 🕵️‍♀️")
+    st.write("Intelligent workflow for gaining recommendations and summarising opinion requests")
 
     if 'query_history' not in st.session_state:
         st.session_state.query_history = []
