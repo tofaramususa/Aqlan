@@ -1,5 +1,6 @@
 # Table of Contents
 
+-[Choice of AI model](#CHOICE-OF-AI-MODEL)
 ## Challenge 1: Context-Aware Government Opinion Request System
 - [Problem Statement](#problem-statement)
 - [Solution](#solution)
@@ -29,7 +30,7 @@
 
 ## Challenge 2: Research Context Agent
 - [Problem Statement](#problem-statement-1)
-  - [Solution](#solution-1)
+- [Solution](#Our-Solution:-Graph-Based-Research-Agent)
   - [Demo](#Demo-1)
   - [How to Run the project](#how-to-run-the-project-1)
 - [Architecture](#architecture)
