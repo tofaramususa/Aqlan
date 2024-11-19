@@ -2,8 +2,11 @@
 
 ## Challenge 1: Context-Aware Government Opinion Request System
 - [Problem Statement](#problem-statement)
-- [Solution Architecture](#solution-architecture)
+- [Solution](#solution)
+  - [Demo](#Demo)
+  - [Solution Architecture](#solution-architecture)
   - [Core Workflow](#core-workflow)
+  - [HOW TO RUN THE PROJECT](#how-to-run-the-project)
   - [Key Components](#key-components)
     - [1. Intelligent Router](#1-intelligent-router)
     - [2. Document Processing](#2-document-processing)
@@ -36,6 +39,9 @@
 - [Development Notes](#development-notes)
 
 
+### CHOICE OF AI MODEL
+- Throughout we are using LLama models hosted on Groq. This is for performance reasons and this can switched for on-premises implementation
+- The open source models executes everything including tool calling.
 
 ## Challenge 1  Context-Aware Government Opinion Request System
 
@@ -47,8 +53,33 @@ Government departments currently handle Internal Opinion Requests through a manu
 - Consistent evaluation criteria
 - Cross-department knowledge sharing
 
+## Solution
+
+## Demo
+
+
+https://github.com/user-attachments/assets/a9f9828b-24c6-413d-9201-9d99a779d207
+
+
+### HOW TO RUN THE PROJECT
+```bash
+# Clone repository
+git clone [https://github.com/tofaramususa/Aqlan](https://github.com/tofaramususa/Aqlan.git)
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Set up environment variables
+THE .env contains api keys already which l will delete after 24hours
+
+# Go into 1. Aqlan Request Agent - Internal Opinion Request and run
+streamlit run agentWorkflow.py
+```
+
+
 ## Solution Architecture
 We've developed a context-aware system that implements an intelligent workflow for processing opinion requests using LangGraph and LangChain frameworks.
+
 
 ### Core Workflow
 ```mermaid
@@ -150,6 +181,7 @@ tiktoken
 tavily-python
 ```
 
+
 #### State Management
 ```python
 class GraphState(TypedDict):
@@ -230,22 +262,6 @@ def main():
 - Enhanced context retrieval
 - Improved feedback loops
 
-### Development Setup
-```bash
-# Clone repository
-git clone https://github.com/yourusername/govt-opinion-system
-
-# Install dependencies
-pip install -r requirements.txt
-
-# Set up environment variables
-export TAVILY_API_KEY="your-key"
-export LANGCHAIN_API_KEY="your-key"
-
-# Run application
-streamlit run app/main.py
-```
-
 ### Testing
 ```python
 # Example test case
@@ -285,6 +301,27 @@ Government departments face a critical challenge in research efficiency:
 ## Our Solution: Graph-Based Research Agent
 
 We've developed a research agent that streamlines document analysis and recommendation generation through a structured workflow. The system emphasizes context awareness and criteria-based analysis while maintaining security through open-source components.
+
+## Demo
+
+
+https://github.com/user-attachments/assets/959e613b-a891-4d23-915c-1fdca1c1b6e1
+
+
+### HOW TO RUN THE PROJECT
+```bash
+# Clone repository
+git clone [https://github.com/tofaramususa/Aqlan](https://github.com/tofaramususa/Aqlan.git)
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Set up environment variables
+THE .env contains api keys already which l will delete after 24hours
+
+# Go into 2. Aqlan Research Agent - Research and Benchmarking
+streamlit run researchUI.py
+```
 
 ### Architecture
 
@@ -394,13 +431,6 @@ langchain==0.2.5
 langgraph==0.1.1
 langchain-core==0.2.9
 semantic-router==0.0.48
-```
-
-2. Environment Configuration:
-```bash
-# Required API keys for external services
-export OPENAI_API_KEY=your_key
-export SERPAPI_KEY=your_key
 ```
 
 ### Future Development Areas
