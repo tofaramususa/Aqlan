@@ -96,9 +96,9 @@ We've developed a context-aware system that implements an intelligent workflow f
 ```mermaid
 stateDiagram-v2
     [*] --> Router
-    Router --> VectorStore: Context Search
+    Router --> VectorDataStore: Context Search
     Router --> WebSearch: External Research
-    VectorStore --> DocumentGrader
+    VectorDataStore --> DocumentGrader
     WebSearch --> DocumentGrader
     DocumentGrader --> Generator
     Generator --> HallucationCheck
