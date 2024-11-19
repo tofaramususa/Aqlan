@@ -1,7 +1,4 @@
 
-### Hallucination Grader
-
-# Hallucination grader instructions
 hallucination_grader_instructions = """
 
 You are a teacher grading a quiz. 
@@ -24,7 +21,6 @@ Explain your reasoning in a step-by-step manner to ensure your reasoning and con
 
 Avoid simply stating the correct answer at the outset."""
 
-# Grader prompt
 hallucination_grader_prompt = """FACTS: \n\n {documents} \n\n STUDENT ANSWER: {generation}. 
 
 Return JSON with two two keys, binary_score is 'yes' or 'no' score to indicate whether the STUDENT ANSWER is grounded in the FACTS. And a key, explanation, that contains an explanation of the score."""

@@ -17,17 +17,14 @@ class GraphState(TypedDict):
     """
     Graph state is a dictionary that contains information we want to propagate to, and modify in, each graph node.
     """
-    question: str  # User question
-    generation: str  # LLM generation
-    web_search: str  # Binary decision to run web search
-    max_retries: int  # Max number of retries for answer generation
-    answers: int  # Number of answers generated
+    question: str
+    generation: str
+    web_search: str
+    max_retries: int
+    answers: int
     loop_step: Annotated[int, operator.add]
-    documents: List[str]  # List of retrieved documents
+    documents: List[str]
     
-
-
-### Nodes -- take in state and update state
 def retrieve(state):
     """
     Retrieve documents from vectorstore
@@ -41,7 +38,6 @@ def retrieve(state):
     print("---RETRIEVE---")
     question = state["question"]
 
-    # Write retrieved documents to documents key in state
     documents = retriever.invoke(question)
     return {"documents": documents}
 
@@ -61,12 +57,9 @@ def generate(state):
     documents = state["documents"]
     loop_step = state.get("loop_step", 0)
 
-    # RAG generation
     docs_txt = format_docs(documents)
     rag_prompt_formatted = rag_prompt.format(context=docs_txt, question=question)
     generation = llm.invoke([HumanMessage(content=rag_prompt_formatted)])
-    # print(generation)
-    # print(type(generation))
     content = generation.content
     return {"generation": content, "loop_step": loop_step + 1}
 
@@ -87,7 +80,6 @@ def grade_documents(state):
     question = state["question"]
     documents = state["documents"]
 
-    # Score each doc
     filtered_docs = []
     web_search = "No"
     for d in documents:
@@ -99,15 +91,11 @@ def grade_documents(state):
             + [HumanMessage(content=doc_grader_prompt_formatted)]
         )
         grade = json.loads(json.dumps(result))["binary_score"]
-        # Document relevant
         if grade.lower() == "yes":
             print("---GRADE: DOCUMENT RELEVANT---")
             filtered_docs.append(d)
-        # Document not relevant
         else:
             print("---GRADE: DOCUMENT NOT RELEVANT---")
-            # We do not include the document in filtered_docs
-            # We set a flag to indicate that we want to run web search
             web_search = "Yes"
             continue
     return {"documents": filtered_docs, "web_search": web_search}
@@ -128,15 +116,11 @@ def web_search(state):
     question = state["question"]
     documents = state.get("documents", [])
 
-    # Web search
     docs = web_search_tool.invoke({"query": question})
     web_results = "\n".join([d["content"] for d in docs])
     web_results = Document(page_content=web_results)
     documents.append(web_results)
     return {"documents": documents}
-
-
-### Edges -- take in state and decide which node to visit next
 
 
 def route_question(state):
@@ -164,7 +148,6 @@ def route_question(state):
         return "vectorstore"
 
 
-# go to the next node
 def decide_to_generate(state):
     """
     Determines whether to generate an answer, or add web search
@@ -182,14 +165,11 @@ def decide_to_generate(state):
     filtered_documents = state["documents"]
 
     if web_search == "Yes":
-        # All documents have been filtered check_relevance
-        # We will re-generate a new query
         print(
             "---DECISION: NOT ALL DOCUMENTS ARE RELEVANT TO QUESTION, INCLUDE WEB SEARCH---"
         )
         return "websearch"
     else:
-        # We have relevant documents, so generate answer
         print("---DECISION: GENERATE---")
         return "generate"
 

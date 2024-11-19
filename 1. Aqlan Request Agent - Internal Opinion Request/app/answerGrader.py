@@ -1,11 +1,3 @@
-# from langchain_core.messages import HumanMessage, SystemMessage
-# from chatModels.chatGroqModel import llm_json_mode
-# import json
-
-
-### Answer Grader
-
-# Answer grader instructions
 answer_grader_instructions = """You are a teacher grading a quiz. 
 
 You will be given a QUESTION and a STUDENT ANSWER. 
@@ -26,7 +18,6 @@ Explain your reasoning in a step-by-step manner to ensure your reasoning and con
 
 Avoid simply stating the correct answer at the outset."""
 
-# Grader prompt
 answer_grader_prompt = """QUESTION: \n\n {question} \n\n STUDENT ANSWER: {generation}. 
 
 Return JSON with two two keys, binary_score is 'yes' or 'no' score to indicate whether the STUDENT ANSWER meets the criteria. And a key, explanation, that contains an explanation of the score."""

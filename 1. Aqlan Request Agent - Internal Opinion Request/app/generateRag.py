@@ -2,9 +2,7 @@ from retrieverDB import retriever
 from langchain_core.messages import HumanMessage
 from chatModels.chatGroqModel import llm
 from webSearch import web_search_tool
-### Generate
 
-# Prompt
 rag_prompt = """You are an assistant for question-answering tasks. 
 
 Here is the context to use to answer the question:
@@ -23,8 +21,6 @@ Use three sentences maximum and keep the answer concise.
 
 Answer:"""
 
-
-# Post-processing
 def format_docs(docs):
     return "\n\n".join(doc.page_content for doc in docs)
 
