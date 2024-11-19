@@ -91,6 +91,7 @@ streamlit run agentWorkflow.py
 ## Solution Architecture
 We've developed a context-aware system that implements an intelligent workflow for processing opinion requests using LangGraph and LangChain frameworks.
 
+### The Maritime Strategy Document has been added to the VectorDataStore for Specific search
 
 ### Core Workflow
 ```mermaid
