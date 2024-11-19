@@ -4,6 +4,7 @@
 - [Problem Statement](#problem-statement)
 - [Solution](#solution)
   - [Demo](#Demo)
+  - [How to Run the project](#how-to-run-the-project)
   - [Solution Architecture](#solution-architecture)
   - [Core Workflow](#core-workflow)
   - [HOW TO RUN THE PROJECT](#how-to-run-the-project)
@@ -28,6 +29,9 @@
 
 ## Challenge 2: Research Context Agent
 - [Problem Statement](#problem-statement-1)
+  - [Solution](#solution-1)
+  - [Demo](#Demo-1)
+  - [How to Run the project](#how-to-run-the-project-1)
 - [Architecture](#architecture)
 - [Core Workflow Components](#core-workflow-components)
 - [Technical Implementation](#technical-implementation-1)
@@ -308,7 +312,7 @@ We've developed a research agent that streamlines document analysis and recommen
 https://github.com/user-attachments/assets/959e613b-a891-4d23-915c-1fdca1c1b6e1
 
 
-### HOW TO RUN THE PROJECT
+### How to run the Project
 ```bash
 # Clone repository
 git clone [https://github.com/tofaramususa/Aqlan](https://github.com/tofaramususa/Aqlan.git)
