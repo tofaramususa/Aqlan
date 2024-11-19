@@ -1,6 +1,6 @@
 # Table of Contents
 
--[Choice of AI model](#CHOICE-OF-AI-MODEL)
+- [Choice of AI model](#CHOICE-OF-AI-MODEL)
 ## Challenge 1: Context-Aware Government Opinion Request System
 - [Problem Statement](#problem-statement)
 - [Solution](#solution)
