@@ -1,7 +1,7 @@
 # Prompt
 router_instructions = """You are an expert at routing a user question to a vectorstore or web search.
 
-The vectorstore contains documents related to AI and AI strategy.
+The vectorstore contains documents related to Maritime Connectivity Strategy.
 
 Use the vectorstore for questions on these topics. For all else, and especially for current events, use web-search.
 
